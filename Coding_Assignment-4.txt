@@ -1,0 +1,213 @@
+1. To create a product details collection which includes the following fields
+
+product_id, product_name, price, no.quantity, company:{name,purchasedate}
+
+Note: create 12 records and repeat multiple products entry with different purchase date
+
+kamesh> db.product_det.insertOne({"product_id":"prd-001","product_name":"iphone11","Qty":1,"company":{"name":"Apple", "purchaseDate": new ISODate("2023-07-14T10:03:08.000Z")}})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64b0d69e82a09ac14ccac644")
+}
+kamesh> db.product_det.insert([{"product_id":"prd-002","product_name":"iphone11","Qty":2,"company":{"name":"Apple", "purchaseDate": new ISODate("2023-07-13T18:03:52.000Z")}},{"product_id":"prd-03","product_name":"iphone11","Qty":2,"company":{"name":"Apple", "purchaseDate": new ISODate("2023-07-14T01:23:09.000Z")}},{"product_id":"prd-4","product_name":"iphone11","Qty":3,"company":{"name":"Apple", "purchaseDate": new ISODate("2023-07-14T11:54:03.000Z")}}])
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64b0dbe382a09ac14ccac645"),
+    '1': ObjectId("64b0dbe382a09ac14ccac646"),
+    '2': ObjectId("64b0dbe382a09ac14ccac647")
+  }
+}
+kamesh> db.product_det.insert([{"product_id":"prd-05","product_name":"Samsung S23 Ultra","Qty":2,"company":{"name":"Samsung", "purchaseDate": new ISODate("2023-07-13T18:03:52.000Z")}},{"product_id":"prd-06","product_name":"Samsung","Qty":3,"company":{"name":"Samsung", "purchaseDate": new ISODate("2023-07-14T01:23:09.000Z")}},{"product_id":"prd-07","product_name":"Samsung S23 Ultra Slim","Qty":2,"company":{"name":"Samsung", "purchaseDate": new ISODate("2023-07-14T11:54:03.000Z")}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64b0dd5a82a09ac14ccac648"),
+    '1': ObjectId("64b0dd5a82a09ac14ccac649"),
+    '2': ObjectId("64b0dd5a82a09ac14ccac64a")
+  }
+}
+kamesh> db.product_det.insert([{"product_id":"prd-08","product_name":"Oppo F9","Qty":2,"company":{"name":"Oppo", "purchaseDate": new ISODate("2023-07-13T18:03:52.000Z")}},{"product_id":"prd-09","product_name":"Oppo F9 Pro","Qty":3,"company":{"name":"Oppo", "purchaseDate": new ISODate("2023-07-14T01:23:09.000Z")}},{"product_id":"prd-10","product_name":"Oppo A5","Qty":2,"company":{"name":"Oppo", "purchaseDate": new ISODate("2023-07-14T11:54:03.000Z")}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64b0ddd982a09ac14ccac64b"),
+    '1': ObjectId("64b0ddd982a09ac14ccac64c"),
+    '2': ObjectId("64b0ddd982a09ac14ccac64d")
+  }
+}
+kamesh> db.product_det.insert([{"product_id":"prd-11","product_name":"Vivo V7","Qty":2,"company":{"name":"Vivo", "purchaseDate": new ISODate("2023-07-13T18:03:52.000Z")}},{"product_id":"prd-12","product_name":"Vivo V9","Qty":3,"company":{"name":"Vivo", "purchaseDate": new ISODate("2023-07-14T01:23:09.000Z")}}])
+
+kamesh> db.product_det.find({},{_id:0})
+[
+  {
+    product_id: 'prd-001',
+    product_name: 'iphone11',
+    Qty: 1,
+    company: {
+      name: 'Apple',
+      purchaseDate: ISODate("2023-07-14T10:03:08.000Z")
+    }
+  },
+  {
+    product_id: 'prd-002',
+    product_name: 'iphone11',
+    Qty: 2,
+    company: {
+      name: 'Apple',
+      purchaseDate: ISODate("2023-07-13T18:03:52.000Z")
+    }
+  },
+  {
+    product_id: 'prd-03',
+    product_name: 'iphone11',
+    Qty: 2,
+    company: {
+      name: 'Apple',
+      purchaseDate: ISODate("2023-07-14T01:23:09.000Z")
+    }
+  },
+  {
+    product_id: 'prd-4',
+    product_name: 'iphone11',
+    Qty: 3,
+    company: {
+      name: 'Apple',
+      purchaseDate: ISODate("2023-07-14T11:54:03.000Z")
+    }
+  },
+  {
+    product_id: 'prd-05',
+    product_name: 'Samsung S23 Ultra',
+    Qty: 2,
+    company: {
+      name: 'Samsung',
+      purchaseDate: ISODate("2023-07-13T18:03:52.000Z")
+    }
+  },
+  {
+    product_id: 'prd-06',
+    product_name: 'Samsung',
+    Qty: 3,
+    company: {
+      name: 'Samsung',
+      purchaseDate: ISODate("2023-07-14T01:23:09.000Z")
+    }
+  },
+  {
+    product_id: 'prd-07',
+    product_name: 'Samsung S23 Ultra Slim',
+    Qty: 2,
+    company: {
+      name: 'Samsung',
+      purchaseDate: ISODate("2023-07-14T11:54:03.000Z")
+    }
+  },
+  {
+    product_id: 'prd-08',
+    product_name: 'Oppo F9',
+    Qty: 2,
+    company: { name: 'Oppo', purchaseDate: ISODate("2023-07-13T18:03:52.000Z") }
+  },
+  {
+    product_id: 'prd-09',
+    product_name: 'Oppo F9 Pro',
+    Qty: 3,
+    company: { name: 'Oppo', purchaseDate: ISODate("2023-07-14T01:23:09.000Z") }
+  },
+  {
+    product_id: 'prd-10',
+    product_name: 'Oppo A5',
+    Qty: 2,
+    company: { name: 'Oppo', purchaseDate: ISODate("2023-07-14T11:54:03.000Z") }
+  },
+  {
+    product_id: 'prd-11',
+    product_name: 'Vivo V7',
+    Qty: 2,
+    company: { name: 'Vivo', purchaseDate: ISODate("2023-07-13T18:03:52.000Z") }
+  },
+  {
+    product_id: 'prd-12',
+    product_name: 'Vivo V9',
+    Qty: 3,
+    company: { name: 'Vivo', purchaseDate: ISODate("2023-07-14T01:23:09.000Z") }
+  }
+]
+
+2. To display five matching of a product name "iphone 11".
+
+kamesh> db.product_det.find({"company.name":"Apple"},{product_name:1,"company.name":1,_id:0})
+[
+  { product_name: 'iphone11', company: { name: 'Apple' } },
+  { product_name: 'iphone11', company: { name: 'Apple' } },
+  { product_name: 'iphone11', company: { name: 'Apple' } },
+  { product_name: 'iphone11', company: { name: 'Apple' } }
+]
+
+3. To group all the products based on their company name.
+
+example:
+
+iPhone 11 - Apple - 5
+
+kamesh> db.product_det.aggregate([{$match:{"company.name":"Apple"}},{$group:{_id:"$product_name","Apple":{$sum:1}}}])
+[ { _id: 'iphone11', Apple: 4 } ]
+
+4.To group all the products and its total sum_price.
+
+kamesh> db.product_det.aggregate([{$group:{_id:"$company.name","Total_Sum":{$sum:"$price"}}}])
+[
+  { _id: 'Apple', Total_Sum: 360000 },
+  { _id: 'Samsung', Total_Sum: 190000 },
+  { _id: 'Vivo', Total_Sum: 90000 },
+  { _id: 'Oppo', Total_Sum: 114000 }
+]
+
+kamesh> db.product_det.aggregate([{$group:{_id:"$product_name","Total_Sum":{$sum:"$price"}}}])
+[
+  { _id: 'Samsung', Total_Sum: 5000 },
+  { _id: 'Samsung S23 Ultra', Total_Sum: 95000 },
+  { _id: 'Vivo V7', Total_Sum: 36000 },
+  { _id: 'iphone11', Total_Sum: 360000 },
+  { _id: 'Oppo F9', Total_Sum: 40000 },
+  { _id: 'Samsung S23 Ultra Slim', Total_Sum: 90000 },
+  { _id: 'Oppo F9 Pro', Total_Sum: 38000 },
+  { _id: 'Oppo A5', Total_Sum: 36000 },
+  { _id: 'Vivo V9', Total_Sum: 54000 }
+]
+
+
+5..To group all the products , total sum_price, and average price .of a product.
+
+kamesh> db.product_det.aggregate([{$group:{_id:"$product_name","Total_Sum":{$sum:"$price"},"Average":{$avg:"$price"}}}])
+[
+  { _id: 'Samsung S23 Ultra', Total_Sum: 95000, Average: 95000 },
+  { _id: 'Samsung', Total_Sum: 5000, Average: 5000 },
+  { _id: 'Vivo V7', Total_Sum: 36000, Average: 36000 },
+  { _id: 'iphone11', Total_Sum: 360000, Average: 90000 },
+  { _id: 'Oppo F9', Total_Sum: 40000, Average: 40000 },
+  { _id: 'Samsung S23 Ultra Slim', Total_Sum: 90000, Average: 90000 },
+  { _id: 'Oppo F9 Pro', Total_Sum: 38000, Average: 38000 },
+  { _id: 'Oppo A5', Total_Sum: 36000, Average: 36000 },
+  { _id: 'Vivo V9', Total_Sum: 54000, Average: 54000 }
+]
+
+kamesh> db.product_det.aggregate([{$group:{_id:"$company.name","Total_Sum":{$sum:"$price"},"Average":{$avg:"$price"}}}])
+[
+  { _id: 'Apple', Total_Sum: 360000, Average: 90000 },
+  { _id: 'Samsung', Total_Sum: 190000, Average: 63333.333333333336 },
+  { _id: 'Vivo', Total_Sum: 90000, Average: 45000 },
+  { _id: 'Oppo', Total_Sum: 114000, Average: 38000 }
+]
+
+6. To group all the products and sort it based on the company name.
+
+kamesh> db.product_det.aggregate([{$group:{_id:"$company.name"}}].sort({"company.name":1}))
+[
+  { _id: 'Apple' },
+  { _id: 'Samsung' },
+  { _id: 'Vivo' },
+  { _id: 'Oppo' }
+]
