@@ -1,0 +1,492 @@
+
+1.      Create a Student Table to store name, course,m1,m2,m3,subjects:["HTML",CSS","MongoDB"],personal:{age,dob,father name,mobile number,email id,address}  of studentskamesh> db.createCollection("Student_Table")
+{ ok: 1 }
+kamesh> db.Student_Table.insertOne({"Name":"Sudharsanan", "Course":"SP", "M1":78,"M2":82,"M3":87,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":22, "Dob":"2002-11-05","Father name":"Ashok","Mobile number":987456321,"email":"ashok@gmail.com","Address":"Namakkal"}})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64af9c1f3ef2237f518ac52d")
+}
+
+ 2. Insert at least 10 documents in a student table using insertMany().
+
+kamesh> db.Student_Table.insertMany([{"Name":"Ashoke", "Course":"SP", "M1":68,"M2":84,"M3":80,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":21, "Dob":"2003-11-05","Father name":"Billa","Mobile number":897456321,"email":"billa@gmail.com","Address":"Coimbatore"}},{"Name":"Subash","Course":"SP","M1":69,"M2":50,"M3":65,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":22,"Dob":"2001-06-26","Father name":"Bose","Mobile number":654987321,"email":"bose@gmail.com","Address":"Malumichampatti"}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64afae6a3ef2237f518ac52e"),
+    '1': ObjectId("64afae6a3ef2237f518ac52f")
+  }
+}
+kamesh> db.Student_Table.insertMany([{"Name":"Prasanth", "Course":"SP", "M1":70,"M2":54,"M3":90,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":22, "Dob":"2002-09-05","Father name":"Kutty","Mobile number":657456321,"email":"kutty@gmail.com","Address":"Tirupur"}},{"Name":"Bharathi","Course":"SP","M1":59,"M2":60,"M3":75,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":23,"Dob":"2000-06-26","Father name":"Raja","Mobile number":684987321,"email":"raja@gmail.com","Address":"Thindukal"}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64afaf043ef2237f518ac530"),
+    '1': ObjectId("64afaf043ef2237f518ac531")
+  }
+}
+kamesh> db.Student_Table.insertMany([{"Name":"Mithun", "Course":"WD", "M1":78,"M2":54,"M3":80,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":23, "Dob":"2003-09-05","Father name":"Chakaravathi","Mobile number":697456321,"email":"chakaravathi@gmail.com","Address":"Kallakurichi"}},{"Name":"Aravind","Course":"SP","M1":79,"M2":60,"M3":65,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":29,"Dob":"1995-03-26","Father name":"Manikandan","Mobile number":468987321,"email":"manikandan@gmail.com","Address":"Coimbatore"}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64afafaf3ef2237f518ac532"),
+    '1': ObjectId("64afafaf3ef2237f518ac533")
+  }
+}
+kamesh> db.Student_Table.insertMany([{"Name":"Hari", "Course":"WD", "M1":45,"M2":54,"M3":51,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":24, "Dob":"1999-09-05","Father name":"Kumar","Mobile number":769456321,"email":"kumar@gmail.com","Address":"Chennai"}},{"Name":"Elavarasan","Course":"SP","M1":79,"M2":90,"M3":85,"Subjects":["HTML","CSS","MongoDB"],"Personal":{"Age":22,"Dob":"2002-03-26","Father name":"Prince","Mobile number":598987321,"email":"prince@gmail.com","Address":"Coimbatore"}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64afb0603ef2237f518ac534"),
+    '1': ObjectId("64afb0603ef2237f518ac535")
+  }
+}
+
+3. Find all documents in the collection of the student.
+
+kamesh> db.Student_Table.find()
+[
+  {
+    _id: ObjectId("64af9c1f3ef2237f518ac52d"),
+    Name: 'Sudharsanan',
+    Course: 'SP',
+    M1: 78,
+    M2: 82,
+    M3: 87,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-11-05',
+      'Father name': 'Ashok',
+      'Mobile number': 987456321,
+      email: 'ashok@gmail.com',
+      Address: 'Namakkal'
+    }
+  },
+  {
+    _id: ObjectId("64afae6a3ef2237f518ac52e"),
+    Name: 'Ashoke',
+    Course: 'SP',
+    M1: 68,
+    M2: 84,
+    M3: 80,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 21,
+      Dob: '2003-11-05',
+      'Father name': 'Billa',
+      'Mobile number': 897456321,
+      email: 'billa@gmail.com',
+      Address: 'Coimbatore'
+    }
+  },
+  {
+    _id: ObjectId("64afae6a3ef2237f518ac52f"),
+    Name: 'Subash',
+    Course: 'SP',
+    M1: 69,
+    M2: 50,
+    M3: 65,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2001-06-26',
+      'Father name': 'Bose',
+      'Mobile number': 654987321,
+      email: 'bose@gmail.com',
+      Address: 'Malumichampatti'
+    }
+  },
+  {
+    _id: ObjectId("64afaf043ef2237f518ac530"),
+    Name: 'Prasanth',
+    Course: 'SP',
+    M1: 70,
+    M2: 54,
+    M3: 90,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-09-05',
+      'Father name': 'Kutty',
+      'Mobile number': 657456321,
+      email: 'kutty@gmail.com',
+      Address: 'Tirupur'
+    }
+  },
+  {
+    _id: ObjectId("64afaf043ef2237f518ac531"),
+    Name: 'Bharathi',
+    Course: 'SP',
+    M1: 59,
+    M2: 60,
+    M3: 75,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 23,
+      Dob: '2000-06-26',
+      'Father name': 'Raja',
+      'Mobile number': 684987321,
+      email: 'raja@gmail.com',
+      Address: 'Thindukal'
+    }
+  },
+  {
+    _id: ObjectId("64afafaf3ef2237f518ac532"),
+    Name: 'Mithun',
+    Course: 'WD',
+    M1: 78,
+    M2: 54,
+    M3: 80,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 23,
+      Dob: '2003-09-05',
+      'Father name': 'Chakaravathi',
+      'Mobile number': 697456321,
+      email: 'chakaravathi@gmail.com',
+      Address: 'Kallakurichi'
+    }
+  },
+  {
+    _id: ObjectId("64afafaf3ef2237f518ac533"),
+    Name: 'Aravind',
+    Course: 'SP',
+    M1: 79,
+    M2: 60,
+    M3: 65,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 29,
+      Dob: '1995-03-26',
+      'Father name': 'Manikandan',
+      'Mobile number': 468987321,
+      email: 'manikandan@gmail.com',
+      Address: 'Coimbatore'
+    }
+  },
+  {
+    _id: ObjectId("64afb0603ef2237f518ac534"),
+    Name: 'Hari',
+    Course: 'WD',
+    M1: 45,
+    M2: 54,
+    M3: 51,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 24,
+      Dob: '1999-09-05',
+      'Father name': 'Kumar',
+      'Mobile number': 769456321,
+      email: 'kumar@gmail.com',
+      Address: 'Chennai'
+    }
+  },
+  {
+    _id: ObjectId("64afb0603ef2237f518ac535"),
+    Name: 'Elavarasan',
+    Course: 'SP',
+    M1: 79,
+    M2: 90,
+    M3: 85,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-03-26',
+      'Father name': 'Prince',
+      'Mobile number': 598987321,
+      email: 'prince@gmail.com',
+      Address: 'Coimbatore'
+    }
+  }
+]
+
+4. Find first documents in the collection of the student.
+
+kamesh> db.Student_Table.findOne({"Name":"Sudharsanan"})
+{
+  _id: ObjectId("64af9c1f3ef2237f518ac52d"),
+  Name: 'Sudharsanan',
+  Course: 'SP',
+  M1: 78,
+  M2: 82,
+  M3: 87,
+  Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+  Personal: {
+    Age: 22,
+    Dob: '2002-11-05',
+    'Father name': 'Ashok',
+    'Mobile number': 987456321,
+    email: 'ashok@gmail.com',
+    Address: 'Namakkal'
+  }
+}
+
+5. Retrieve student's documents whose student course is SP.
+
+kamesh> db.Student_Table.find({},{"Name":1,"Course":"SP",_id:0})
+[
+  { Name: 'Sudharsanan', Course: 'SP' },
+  { Name: 'Ashoke', Course: 'SP' },
+  { Name: 'Subash', Course: 'SP' },
+  { Name: 'Prasanth', Course: 'SP' },
+  { Name: 'Bharathi', Course: 'SP' },
+  { Name: 'Mithun', Course: 'SP' },
+  { Name: 'Aravind', Course: 'SP' },
+  { Name: 'Hari', Course: 'SP' },
+  { Name: 'Elavarasan', Course: 'SP' }
+]
+
+6. Retrieve only student name fields with the help of projection.
+
+kamesh> db.Student_Table.find({},{"Name":1,_id:0})
+[
+  { Name: 'Sudharsanan' },
+  { Name: 'Ashoke' },
+  { Name: 'Subash' },
+  { Name: 'Prasanth' },
+  { Name: 'Bharathi' },
+  { Name: 'Mithun' },
+  { Name: 'Aravind' },
+  { Name: 'Hari' },
+  { Name: 'Elavarasan' }
+]
+
+7. Retrieve student name, course, mobile number fields with the help of projection.
+
+kamesh> db.Student_Table.find({},{"Name":1,"Course":1,"Personal.Mobile number":1,_id:0})
+[
+  {
+    Name: 'Sudharsanan',
+    Course: 'SP',
+    Personal: { 'Mobile number': 987456321 }
+  },
+  {
+    Name: 'Ashoke',
+    Course: 'SP',
+    Personal: { 'Mobile number': 897456321 }
+  },
+  {
+    Name: 'Subash',
+    Course: 'SP',
+    Personal: { 'Mobile number': 654987321 }
+  },
+  {
+    Name: 'Prasanth',
+    Course: 'SP',
+    Personal: { 'Mobile number': 657456321 }
+  },
+  {
+    Name: 'Bharathi',
+    Course: 'SP',
+    Personal: { 'Mobile number': 684987321 }
+  },
+  {
+    Name: 'Mithun',
+    Course: 'WD',
+    Personal: { 'Mobile number': 697456321 }
+  },
+  {
+    Name: 'Aravind',
+    Course: 'SP',
+    Personal: { 'Mobile number': 468987321 }
+  },
+  {
+    Name: 'Hari',
+    Course: 'WD',
+    Personal: { 'Mobile number': 769456321 }
+  },
+  {
+    Name: 'Elavarasan',
+    Course: 'SP',
+    Personal: { 'Mobile number': 598987321 }
+  }
+]
+
+8.Retrieve only student name whose m1 is greater than 70.
+
+kamesh> db.Student_Table.find({M1:{$gt:70}},{"Name":1,"M1":1,_id:0})
+[
+  { Name: 'Sudharsanan', M1: 78 },
+  { Name: 'Mithun', M1: 78 },
+  { Name: 'Aravind', M1: 79 },
+  { Name: 'Elavarasan', M1: 79 }
+]
+
+9.Retrieve only student name whose m2 is less than 70.
+
+kamesh> db.Student_Table.find({M2:{$lt:70}},{"Name":1,_id:0})
+[
+  { Name: 'Subash' },
+  { Name: 'Prasanth' },
+  { Name: 'Bharathi' },
+  { Name: 'Mithun' },
+  { Name: 'Aravind' },
+  { Name: 'Hari' }
+]
+
+10.Retrieve only student name whose name equal to "Sudharsanan".
+
+kamesh> db.Student_Table.find({"Name":{"$eq":"Sudharsanan"}})
+[
+  {
+    _id: ObjectId("64af9c1f3ef2237f518ac52d"),
+    Name: 'Sudharsanan',
+    Course: 'SP',
+    M1: 78,
+    M2: 82,
+    M3: 87,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-11-05',
+      'Father name': 'Ashok',
+      'Mobile number': 987456321,
+      email: 'ashok@gmail.com',
+      Address: 'Namakkal'
+    }
+  }
+]
+
+11.Retrieve only student name whose name not equal to "Sudharsanan".
+
+kamesh> db.Student_Table.find({"Name":{"$not":{"$eq":"Sudharsanan"}}})
+[
+  {
+    _id: ObjectId("64afae6a3ef2237f518ac52e"),
+    Name: 'Ashoke',
+    Course: 'SP',
+    M1: 68,
+    M2: 84,
+    M3: 80,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 21,
+      Dob: '2003-11-05',
+      'Father name': 'Billa',
+      'Mobile number': 897456321,
+      email: 'billa@gmail.com',
+      Address: 'Coimbatore'
+    }
+  },
+  {
+    _id: ObjectId("64afae6a3ef2237f518ac52f"),
+    Name: 'Subash',
+    Course: 'SP',
+    M1: 69,
+    M2: 50,
+    M3: 65,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2001-06-26',
+      'Father name': 'Bose',
+      'Mobile number': 654987321,
+      email: 'bose@gmail.com',
+      Address: 'Malumichampatti'
+    }
+  },
+  {
+    _id: ObjectId("64afaf043ef2237f518ac530"),
+    Name: 'Prasanth',
+    Course: 'SP',
+    M1: 70,
+    M2: 54,
+    M3: 90,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-09-05',
+      'Father name': 'Kutty',
+      'Mobile number': 657456321,
+      email: 'kutty@gmail.com',
+      Address: 'Tirupur'
+    }
+  },
+  {
+    _id: ObjectId("64afaf043ef2237f518ac531"),
+    Name: 'Bharathi',
+    Course: 'SP',
+    M1: 59,
+    M2: 60,
+    M3: 75,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 23,
+      Dob: '2000-06-26',
+      'Father name': 'Raja',
+      'Mobile number': 684987321,
+      email: 'raja@gmail.com',
+      Address: 'Thindukal'
+    }
+  },
+  {
+    _id: ObjectId("64afafaf3ef2237f518ac532"),
+    Name: 'Mithun',
+    Course: 'WD',
+    M1: 78,
+    M2: 54,
+    M3: 80,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 23,
+      Dob: '2003-09-05',
+      'Father name': 'Chakaravathi',
+      'Mobile number': 697456321,
+      email: 'chakaravathi@gmail.com',
+      Address: 'Kallakurichi'
+    }
+  },
+  {
+    _id: ObjectId("64afafaf3ef2237f518ac533"),
+    Name: 'Aravind',
+    Course: 'SP',
+    M1: 79,
+    M2: 60,
+    M3: 65,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 29,
+      Dob: '1995-03-26',
+      'Father name': 'Manikandan',
+      'Mobile number': 468987321,
+      email: 'manikandan@gmail.com',
+      Address: 'Coimbatore'
+    }
+  },
+  {
+    _id: ObjectId("64afb0603ef2237f518ac534"),
+    Name: 'Hari',
+    Course: 'WD',
+    M1: 45,
+    M2: 54,
+    M3: 51,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 24,
+      Dob: '1999-09-05',
+      'Father name': 'Kumar',
+      'Mobile number': 769456321,
+      email: 'kumar@gmail.com',
+      Address: 'Chennai'
+    }
+  },
+  {
+    _id: ObjectId("64afb0603ef2237f518ac535"),
+    Name: 'Elavarasan',
+    Course: 'SP',
+    M1: 79,
+    M2: 90,
+    M3: 85,
+    Subjects: [ 'HTML', 'CSS', 'MongoDB' ],
+    Personal: {
+      Age: 22,
+      Dob: '2002-03-26',
+      'Father name': 'Prince',
+      'Mobile number': 598987321,
+      email: 'prince@gmail.com',
+      Address: 'Coimbatore'
+    }
+  }
+]
+
